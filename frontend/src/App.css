@@ -1,0 +1,241 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap');
+
+* {
+  font-family: 'Nunito Sans', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+h1 {
+  font-size: 42px;
+  font-weight: 900;
+  text-align: left;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+h1 span {
+  font-size: 28px;
+  font-weight: 300;
+  margin-left: 16px;
+}
+
+nav {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 16px;
+}
+
+nav::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 100vw;
+  height: 1px;
+  background-color: rgba(0, 0, 0, 0.2);
+  transform: translateX(-50%);
+}
+
+nav .user-container {
+  margin-right: auto;
+}
+
+nav .user {
+  font-weight: 800;
+}
+
+nav > * {
+  color: #000;
+  text-decoration: none;
+  padding: 24px 0;
+}
+
+nav a + a {
+  margin-left: 16px;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+header {
+  margin: 0 auto;
+  padding: 38px 0 24px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+main {
+  min-height: calc(100vh - 175px);
+  /* background-color: rgb(240, 215, 30); */
+  background-color: #fff;
+  padding-top: 150px;
+  padding-bottom: 50px;
+}
+
+@media (max-width: 900px) {
+  main {
+    padding-top: 50px;
+  }
+}
+
+.hive {
+  max-width: 400px;
+  aspect-ratio: 1 / 1;
+  margin: 0 auto;
+  position: relative;
+}
+
+.hive .item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transition: all 0.3s ease-in-out;
+}
+
+.hive .item span {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  text-transform: uppercase;
+  font-size: 34px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.hive .item svg {
+  font-size: 100px;
+  transform: rotate(30deg);
+  color: #e6e6e6;
+}
+
+svg path {
+  cursor: pointer;
+}
+
+.hive .item.center svg {
+  color: rgb(240, 215, 30);
+}
+
+.hive .item.center {
+  transform: translate(-50%, -50%);
+}
+
+.buttonsContainer {
+  display: flex;
+  justify-content: space-between;
+  max-width: 400px;
+  margin: 0 auto;
+  align-items: center;
+  padding: 0 70px;
+  gap: 16px;
+}
+
+.input-container {
+  text-align: center;
+  height: 33px;
+}
+.input-container span {
+  font-size: 32px;
+  color: #e6e6e6;
+  height: 33px;
+  display: inline-block;
+  text-transform: uppercase;
+  font-weight: 800;
+  position: relative;
+}
+
+.input-container > span::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 2px;
+  height: 1.25em;
+  background: #f7da21;
+  animation: 1000ms blink step-end infinite;
+}
+.input-container > span.active::after {
+  right: -6px;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0;
+  }
+  40% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.input-container span span {
+  padding: 0 1px;
+  color: #000;
+}
+
+.input-container span span.invalid {
+  color: #e6e6e6;
+}
+
+.spinner {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.spinner img {
+  width: 40%;
+  max-width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@media (max-width: 600px) {
+  h1 {
+    flex-direction: column;
+  }
+
+  h1 span {
+    margin: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .buttonsContainer {
+    padding: 0;
+    max-width: 300px;
+  }
+}
+
+.about {
+  margin-top: 24px;
+  text-wrap: balance;
+  max-width: 900px;
+}
+
+h2 {
+  margin-top: 64px;
+}
+
+a {
+  color: #000;
+}

@@ -1,0 +1,24 @@
+.custom-button {
+  padding: 12px 26px;
+  border-radius: 100px;
+  border: 1px solid lightgrey;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  max-width: 90px;
+}
+.custom-button:hover {
+  cursor: pointer;
+}
+
+.custom-button svg {
+  font-size: 24px;
+}
+
+.custom-button.circle {
+  padding: 0;
+  width: 45px;
+  aspect-ratio: 1/1;
+}
