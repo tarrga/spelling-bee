@@ -1,14 +1,14 @@
 const { wordList, sevenLetterWordList } = require('../models/wordsList');
 
-console.log(sevenLetterWordList);
+// console.log(sevenLetterWordList);
 
 let lettersOfTheDay;
 let possibleWords;
 
 const checkPossibleWords = () => {
-  possibleWords = wordList.filter((wordListW) => {
-    const wordListWA = wordListW.split('');
-    return wordListWA.every((letter) =>
+  return wordList.filter((word) => {
+    const wordArray = word.split('');
+    return wordArray.every((letter) =>
       lettersOfTheDay.some((l) => l === letter)
     );
   });
@@ -37,9 +37,10 @@ const start = () => {
     'e',
     'h',
   ];
-  possibleWords;
 
-  checkPossibleWords();
+  possibleWords = checkPossibleWords();
+  console.log(possibleWords);
+  // must contain the main letter
   possibleWords = possibleWords.filter((pw) => {
     return pw.split('').some((pwl) => pwl === lettersOfTheDay[0]);
   });
@@ -81,8 +82,6 @@ const postWord = (req, res) => {
   });
   const match = possibleWords.some((w) => w === wordLowerCase);
   if (match) {
-    console.log(typeof word);
-    console.log(typeof wordLowerCase);
     res.json({ word: wordLowerCase });
   } else {
     res.json({ error: `There is no match` });
