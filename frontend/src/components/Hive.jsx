@@ -31,7 +31,7 @@ export default function Hive({ actualLetters, possibleWordsLength }) {
   const [firstType, setFirstType] = useState(false);
   const [error, setError] = useState('');
 
-  const { guessedWords } = useSelector((state) => state.words);
+  const { guessedWords, lettersOfTheDay } = useSelector((state) => state.words);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -80,7 +80,10 @@ export default function Hive({ actualLetters, possibleWordsLength }) {
           headers: {
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({ word: typeLetterString }),
+          body: JSON.stringify({
+            word: typeLetterString,
+            wordOfTheDay: lettersOfTheDay.join(''),
+          }),
         }
       );
 
@@ -97,7 +100,7 @@ export default function Hive({ actualLetters, possibleWordsLength }) {
       console.log(error.message);
       setError(error.message);
     }
-  }, [guessedWords, typedLetters, dispatch]);
+  }, [guessedWords, typedLetters, dispatch, lettersOfTheDay]);
 
   useEffect(() => {
     setPercentage(() => {

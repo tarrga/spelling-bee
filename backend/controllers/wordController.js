@@ -14,30 +14,33 @@ const checkPossibleWords = () => {
   });
 };
 
-const start = () => {
-  const startDate = '2024-01-25';
-  const currentDate = new Date();
+const start = (postWord = null) => {
+  if (postWord) {
+    lettersOfTheDay = postWord.split('');
+  } else {
+    const startDate = '2024-01-25';
+    const currentDate = new Date();
 
-  const day = Math.ceil(
-    new Date(
-      `${currentDate.getFullYear()}-${
-        currentDate.getMonth() + 1
-      }-${currentDate.getDate()}`
-    ) /
-      86400000 -
-      new Date(startDate) / 86400000
-  );
+    const day = Math.ceil(
+      new Date(
+        `${currentDate.getFullYear()}-${
+          currentDate.getMonth() + 1
+        }-${currentDate.getDate()}`
+      ) /
+        86400000 -
+        new Date(startDate) / 86400000
+    );
 
-  lettersOfTheDay = sevenLetterWordList[day]?.split('') ?? [
-    'r',
-    'f',
-    'v',
-    'a',
-    'o',
-    'e',
-    'h',
-  ];
-
+    lettersOfTheDay = sevenLetterWordList[day]?.split('') ?? [
+      'r',
+      'f',
+      'v',
+      'a',
+      'o',
+      'e',
+      'h',
+    ];
+  }
   possibleWords = checkPossibleWords();
 
   // must contain the main letter
@@ -64,7 +67,8 @@ const gameStart = (req, res) => {
 // @access Public
 
 const postWord = (req, res) => {
-  const { word } = req.body;
+  const { word, wordOfTheDay } = req.body;
+  const { lettersOfTheDay, possibleWords } = start(wordOfTheDay);
   const wordLowerCase = word.toLowerCase();
   const wordToArray = wordLowerCase.split('');
   if (wordToArray.length < 4) {
