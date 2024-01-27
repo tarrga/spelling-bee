@@ -8,6 +8,7 @@ const mongoose = require('mongoose');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 const wordRoutes = require('./routes/wordRoute');
 const userRoutes = require('./routes/userRoute');
+const testRoutes = require('./routes/testRoute');
 
 // express app
 const app = express();
@@ -28,6 +29,7 @@ app.use((req, res, next) => {
 // routes
 app.use('/api/words', wordRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/test', testRoutes);
 
 app.use(notFound);
 app.use(errorHandler);

@@ -39,11 +39,13 @@ const start = () => {
   ];
 
   possibleWords = checkPossibleWords();
-  console.log(possibleWords);
+
   // must contain the main letter
   possibleWords = possibleWords.filter((pw) => {
     return pw.split('').some((pwl) => pwl === lettersOfTheDay[0]);
   });
+
+  console.log(possibleWords);
 
   return { lettersOfTheDay, possibleWords };
 };
