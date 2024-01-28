@@ -91,6 +91,10 @@ export default function Hive({ actualLetters, possibleWordsLength }) {
       const data = await res.json();
       if (data.word) {
         dispatch(addWord(data.word));
+        localStorage.setItem(
+          `gtSpellingBee-${lettersOfTheDay.join('')}`,
+          JSON.stringify([...guessedWords, data.word])
+        );
         setTypedLetters([]);
       } else {
         setError(data.error);

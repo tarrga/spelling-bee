@@ -3,18 +3,21 @@ import { useEffect, useState } from 'react';
 import Spinner from '../components/Spinner';
 import { useSelector, useDispatch } from 'react-redux';
 import {
+  setGuessedWords,
   setPossibleWordsLength,
   setLettersOfTheDay,
 } from '../store/wordsSlice';
 
 export default function Home() {
   const [minTime, setMinTime] = useState(0);
-  const { lettersOfTheDay, possibleWordsLength } = useSelector(
+  const { guessedWords, lettersOfTheDay, possibleWordsLength } = useSelector(
     (state) => state.words
   );
   const dispatch = useDispatch();
 
   const [errorMessage, setError] = useState(false);
+
+  // get data from the server
   useEffect(() => {
     if (lettersOfTheDay.length !== 0) {
       return;
@@ -41,6 +44,31 @@ export default function Home() {
 
     fetchData();
   }, [minTime, dispatch, lettersOfTheDay]);
+
+  // get guessed words from localStorage
+  useEffect(() => {
+    if (guessedWords.length !== 0) {
+      return;
+    }
+
+    // remove old items from localStorage
+    if (lettersOfTheDay.length !== 0) {
+      Object.keys(localStorage).forEach((key) => {
+        if (
+          key.startsWith('gtSpellingBee-') &&
+          key !== `gtSpellingBee-${lettersOfTheDay.join('')}`
+        )
+          localStorage.removeItem(key);
+      });
+    }
+
+    const localStorageData = localStorage.getItem(
+      `gtSpellingBee-${lettersOfTheDay.join('')}`
+    );
+    if (localStorageData) {
+      dispatch(setGuessedWords(JSON.parse(localStorageData)));
+    }
+  }, [lettersOfTheDay, dispatch, guessedWords]);
 
   if (errorMessage) {
     return <h2 className="container">{errorMessage}</h2>;

@@ -23,10 +23,18 @@ export const counterSlice = createSlice({
     setPossibleWordsLength: (state, action) => {
       state.possibleWordsLength = action.payload;
     },
+    setGuessedWords: (state, action) => {
+      state.guessedWords = action.payload;
+    },
   },
 });
 
 // Action creators are generated for each case reducer function
-export const { addWord, setLettersOfTheDay, setPossibleWordsLength } = counterSlice.actions;
+export const {
+  addWord,
+  setLettersOfTheDay,
+  setPossibleWordsLength,
+  setGuessedWords,
+} = counterSlice.actions;
 
 export default counterSlice.reducer;
