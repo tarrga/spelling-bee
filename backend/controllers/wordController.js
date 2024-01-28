@@ -15,21 +15,12 @@ const checkPossibleWords = () => {
 };
 
 const start = (postWord = null) => {
-  if (postWord) {
+  if (postWord !== null) {
     lettersOfTheDay = postWord.split('');
   } else {
-    const startDate = '2024-01-25';
+    const startDate = new Date('2024/01/25');
     const currentDate = new Date();
-
-    const day = Math.ceil(
-      new Date(
-        `${currentDate.getFullYear()}-${
-          currentDate.getMonth() + 1
-        }-${currentDate.getDate()}`
-      ) /
-        86400000 -
-        new Date(startDate) / 86400000
-    );
+    const day = Math.floor(Math.abs(currentDate - startDate) / 86400000);
 
     lettersOfTheDay = sevenLetterWordList[day]?.split('') ?? [
       'r',
@@ -48,9 +39,12 @@ const start = (postWord = null) => {
     return pw.split('').some((pwl) => pwl === lettersOfTheDay[0]);
   });
 
-  console.log(possibleWords);
+  // console.log(possibleWords);
 
-  return { lettersOfTheDay, possibleWords };
+  return {
+    lettersOfTheDay,
+    possibleWords,
+  };
 };
 
 // @desc get the lettersOfTheDay and possible words
