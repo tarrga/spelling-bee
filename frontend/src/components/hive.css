@@ -1,6 +1,8 @@
 .hive-container {
-  display: flex;
-  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .status-container {
@@ -27,7 +29,7 @@
 
 @media (max-width: 900px) {
   .hive-container {
-    flex-direction: column;
+    grid-template-columns: 1fr;
   }
   .status-container-wrapper {
     margin-top: 50px;
