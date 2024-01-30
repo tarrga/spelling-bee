@@ -1,3 +1,4 @@
+import './spinner.scss';
 import spinner from '../assets/image/spinner.gif';
 
 export default function Spinner() {

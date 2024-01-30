@@ -1,0 +1,36 @@
+.input-container {
+  text-align: center;
+  height: 33px;
+  .letters-container {
+    font-size: 32px;
+    color: #e6e6e6;
+    height: 33px;
+    display: inline-block;
+    text-transform: uppercase;
+    font-weight: 800;
+    position: relative;
+    &.active {
+      &::after {
+        right: -6px;
+      }
+    }
+
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 2px;
+      height: 1.25em;
+      background: #f7da21;
+      animation: 1000ms blink step-end infinite;
+    }
+    .letter {
+      padding: 0 1px;
+      color: #000;
+      &.invalid {
+        color: #e6e6e6;
+      }
+    }
+  }
+}

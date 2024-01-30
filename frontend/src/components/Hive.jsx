@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './hive.css';
+import './hive.scss';
 
 //components
 import Button from './Button';
@@ -187,8 +187,8 @@ export default function Hive({ actualLetters, possibleWordsLength }) {
 
   return (
     <>
-      <div className='hive-container'>
-        <div className='hive-buttons-container'>
+      <div className='hive-guessed-container'>
+        <div className='hive-buttons-input-container'>
           <InputBar typedLetters={typedLetters} firstType={firstType} />
           <div className='hive'>
             {error && <div className='error'>{error}</div>}

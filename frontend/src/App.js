@@ -5,17 +5,17 @@ import Home from './pages/Home';
 import Header from './components/Header';
 import Navigation from './components/Navigation';
 
-import './App.css';
+import './app.scss';
 
 function App() {
   return (
     <BrowserRouter>
-      <div className="app">
+      <div className='app'>
         <Navigation />
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path='/' element={<Home />} />
+          <Route path='/about' element={<About />} />
         </Routes>
       </div>
     </BrowserRouter>

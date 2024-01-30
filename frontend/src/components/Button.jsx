@@ -1,4 +1,4 @@
-import './button.css';
+import './button.scss';
 
 export default function Button({ title, clickEvent, className }) {
   return (

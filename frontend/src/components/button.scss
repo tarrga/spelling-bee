@@ -8,17 +8,15 @@
   align-items: center;
   font-size: 16px;
   max-width: 90px;
-}
-.custom-button:hover {
-  cursor: pointer;
-}
-
-.custom-button svg {
-  font-size: 24px;
-}
-
-.custom-button.circle {
-  padding: 0;
-  width: 45px;
-  aspect-ratio: 1/1;
+  &:hover {
+    cursor: pointer;
+  }
+  &.circle {
+    padding: 0;
+    width: 45px;
+    aspect-ratio: 1/1;
+  }
+  svg {
+    font-size: 24px;
+  }
 }
