@@ -1,6 +1,6 @@
 nav {
   position: relative;
-  padding: 24px 0;
+  padding: 24px 16px;
   &::after {
     content: '';
     position: absolute;
@@ -19,7 +19,6 @@ nav {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    padding: 0 16px;
     a {
       color: #000;
       text-decoration-color: transparent;

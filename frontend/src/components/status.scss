@@ -1,4 +1,6 @@
 .status-container-wrapper {
+  display: flex;
+  flex-direction: column;
   padding: 0 16px;
   height: 100%;
   max-width: 450px;
@@ -105,10 +107,13 @@
       flex-direction: row;
       justify-content: space-between;
       align-items: center;
+      span {
+        white-space: nowrap;
+      }
       span.btn {
         display: none;
         justify-content: center;
-        align-content: center;
+        align-items: center;
         cursor: pointer;
         transition: all 0.2s ease-in-out;
         &.open {

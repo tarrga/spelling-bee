@@ -14,35 +14,9 @@
       aspect-ratio: 1 / 1;
       margin: 0 auto;
       position: relative;
-      .item {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transition: all 0.3s ease-in-out;
-        &.center {
-          transform: translate(-50%, -50%);
-          svg {
-            color: rgb(240, 215, 30);
-          }
-        }
-        svg {
-          font-size: 100px;
-          transform: rotate(30deg);
-          color: #e6e6e6;
-          path {
-            cursor: pointer;
-          }
-        }
-        span {
-          position: absolute;
-          transform: translate(-50%, -50%);
-          top: 50%;
-          left: 50%;
-          text-transform: uppercase;
-          font-size: 34px;
-          font-weight: 700;
-          cursor: pointer;
-        }
+
+      @media only screen and (max-width: 350px) {
+        margin: 32px 0;
       }
     }
     .buttonsContainer {

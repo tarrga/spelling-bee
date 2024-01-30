@@ -12,6 +12,7 @@ import { useCallback } from 'react';
 
 import InputBar from './InputBar';
 import Status from './Status';
+import HiveHexagon from './HiveHexagon';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { addWord } from '../store/wordsSlice';
@@ -192,34 +193,13 @@ export default function Hive({ actualLetters, possibleWordsLength }) {
           <InputBar typedLetters={typedLetters} firstType={firstType} />
           <div className='hive'>
             {error && <div className='error'>{error}</div>}
-            <div className='item center' onClick={e => addHandler(e, actualLetters[0])}>
-              <BsHexagonFill />
-              <span>{actualLetters[0]}</span>
-            </div>
-            <div className={`item top`} style={{ transform: positions[0] }} onClick={e => addHandler(e, actualLetters[6])}>
-              <BsHexagonFill />
-              <span>{actualLetters[6]}</span>
-            </div>
-            <div className='item top-right' style={{ transform: positions[1] }} onClick={e => addHandler(e, actualLetters[1])}>
-              <BsHexagonFill />
-              <span>{actualLetters[1]}</span>
-            </div>
-            <div className='item bottom-right' style={{ transform: positions[2] }} onClick={e => addHandler(e, actualLetters[2])}>
-              <BsHexagonFill />
-              <span>{actualLetters[2]}</span>
-            </div>
-            <div className='item bottom' style={{ transform: positions[3] }} onClick={e => addHandler(e, actualLetters[3])}>
-              <BsHexagonFill />
-              <span>{actualLetters[3]}</span>
-            </div>
-            <div className='item bottom-left' style={{ transform: positions[4] }} onClick={e => addHandler(e, actualLetters[4])}>
-              <BsHexagonFill />
-              <span>{actualLetters[4]}</span>
-            </div>
-            <div className='item top-left' style={{ transform: positions[5] }} onClick={e => addHandler(e, actualLetters[5])}>
-              <BsHexagonFill />
-              <span>{actualLetters[5]}</span>
-            </div>
+            <HiveHexagon actualLetter={actualLetters[0]} position={'center'} addHandler={addHandler} />
+            <HiveHexagon actualLetter={actualLetters[1]} translate={positions[0]} addHandler={addHandler} />
+            <HiveHexagon actualLetter={actualLetters[2]} translate={positions[1]} addHandler={addHandler} />
+            <HiveHexagon actualLetter={actualLetters[3]} translate={positions[2]} addHandler={addHandler} />
+            <HiveHexagon actualLetter={actualLetters[4]} translate={positions[3]} addHandler={addHandler} />
+            <HiveHexagon actualLetter={actualLetters[5]} translate={positions[4]} addHandler={addHandler} />
+            <HiveHexagon actualLetter={actualLetters[6]} translate={positions[5]} addHandler={addHandler} />
           </div>
           <div className='buttonsContainer'>
             <Button title='Delete' clickEvent={deleteEvent} />
