@@ -7,11 +7,9 @@ export default function Button({ title, clickEvent, className }) {
     <button
       className={`${className ?? ''} ${animate ? 'animate' : ''} custom-button`}
       onClick={() => {
-        console.log('click');
         clickEvent();
         setAnimate(true);
       }}
-      onAnimationStart={() => console.log('animation start')}
       onAnimationEnd={() => setAnimate(false)}
     >
       {title}

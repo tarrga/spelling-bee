@@ -17,14 +17,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addWord } from '../store/wordsSlice';
 
 export default function Hive({ actualLetters, possibleWordsLength }) {
-  const [positions, setPositions] = useState([
-    'translate(33%, -95%)',
-    'translate(33%, -5%)',
-    'translate(-50%, 40%)',
-    'translate(-133%, -5%)',
-    'translate(-133%, -95%)',
-    'translate(-50%, -140%)',
-  ]);
+  const [positions, setPositions] = useState(['top', 'top-right', 'bottom-right', 'bottom', 'bottom-left', 'top-left']);
 
   const [percentage, setPercentage] = useState('zero');
   const [typedLetters, setTypedLetters] = useState([]);

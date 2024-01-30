@@ -5,8 +5,48 @@
   transition: all 0.3s ease-in-out;
   &.center {
     transform: translate(-50%, -50%);
+    &.animateHex {
+      transform: translate(-50%, -50%) scale(0.85);
+    }
     svg {
       color: rgb(240, 215, 30);
+    }
+  }
+  &.top {
+    transform: translate(-50%, -140%) scale(1);
+    &.animateHex {
+      transform: translate(-50%, -140%) scale(0.85);
+    }
+  }
+
+  &.top-right {
+    transform: translate(33%, -95%) scale(1);
+    &.animateHex {
+      transform: translate(33%, -95%) scale(0.85);
+    }
+  }
+  &.bottom-right {
+    transform: translate(33%, -5%) scale(1);
+    &.animateHex {
+      transform: translate(33%, -5%) scale(0.85);
+    }
+  }
+  &.bottom {
+    transform: translate(-50%, 40%) scale(1);
+    &.animateHex {
+      transform: translate(-50%, 40%) scale(0.85);
+    }
+  }
+  &.bottom-left {
+    transform: translate(-133%, -5%) scale(1);
+    &.animateHex {
+      transform: translate(-133%, -5%) scale(0.85);
+    }
+  }
+  &.top-left {
+    transform: translate(-133%, -95%) scale(1);
+    &.animateHex {
+      transform: translate(-133%, -95%) scale(0.85);
     }
   }
   svg {
