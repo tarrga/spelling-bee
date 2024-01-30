@@ -5,7 +5,6 @@ import './hive.scss';
 import Button from './Button';
 
 //svg
-import { BsHexagonFill } from 'react-icons/bs';
 import { SlRefresh } from 'react-icons/sl';
 import { useEffect } from 'react';
 import { useCallback } from 'react';
