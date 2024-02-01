@@ -182,9 +182,9 @@ export default function Hive({ actualLetters, possibleWordsLength }) {
     <>
       <div className='hive-guessed-container'>
         <div className='hive-buttons-input-container'>
-          <InputBar typedLetters={typedLetters} firstType={firstType} />
+          <InputBar typedLetters={typedLetters} firstType={firstType} error={error} />
           <div className='hive'>
-            {error && <div className='error'>{error}</div>}
+            {/* {error && <div className='error'>{error}</div>} */}
             <HiveHexagon actualLetter={actualLetters[0]} position={'center'} addHandler={addHandler} />
             <HiveHexagon actualLetter={actualLetters[1]} translate={positions[0]} addHandler={addHandler} />
             <HiveHexagon actualLetter={actualLetters[2]} translate={positions[1]} addHandler={addHandler} />

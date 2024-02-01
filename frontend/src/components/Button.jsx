@@ -4,7 +4,7 @@ import './button.scss';
 export default function Button({ title, clickEvent, className }) {
   const [animate, setAnimate] = useState(false);
   return (
-    <button
+    <div
       className={`${className ?? ''} ${animate ? 'animate' : ''} custom-button`}
       onClick={() => {
         clickEvent();
@@ -13,6 +13,6 @@ export default function Button({ title, clickEvent, className }) {
       onAnimationEnd={() => setAnimate(false)}
     >
       {title}
-    </button>
+    </div>
   );
 }

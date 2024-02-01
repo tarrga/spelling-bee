@@ -1,17 +1,23 @@
+$width: 300px;
+
 .input-container {
   text-align: center;
-  height: 33px;
+  min-height: 46px;
+  word-break: break-all;
+  position: relative;
   .letters-container {
+    display: inline-block;
     font-size: 32px;
     color: #e6e6e6;
-    height: 33px;
-    display: inline-block;
+    min-height: 37px;
     text-transform: uppercase;
     font-weight: 800;
     position: relative;
+    container-name: lettersContainer;
     &.active {
       &::after {
         right: -6px;
+        left: initial;
       }
     }
 
@@ -20,17 +26,64 @@
       display: block;
       position: absolute;
       top: 0;
+      left: -4px;
       width: 2px;
-      height: 1.25em;
+      height: 40px;
       background: #f7da21;
       animation: 1000ms blink step-end infinite;
     }
+    &:has(span) {
+      &::after {
+        content: none;
+      }
+      span.letter:last-of-type {
+        position: relative;
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          right: -6px;
+          width: 2px;
+          height: 40px;
+          background: #f7da21;
+          animation: 1000ms blink step-end infinite;
+        }
+      }
+    }
+
     .letter {
       padding: 0 1px;
+      font-size: 32px;
       color: #000;
+      // container-name: lettersContainer;
       &.invalid {
         color: #e6e6e6;
       }
     }
   }
+
+  // @container lettersContainer (min-width: 300px) {
+  //   .letters-container .letter {
+  //     font-size: 28px;
+  //   }
+  // }
+}
+@container lettersContainer (max-width: 100px) {
+  .letters-container .letter {
+    font-size: 28px;
+  }
+}
+.error {
+  position: absolute;
+  display: flex;
+  width: 60%;
+  justify-content: center;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 12px 24px;
+  border-radius: 6px;
+  background-color: rgba(240, 215, 30, 1);
+  z-index: 10;
 }
