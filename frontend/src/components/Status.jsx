@@ -47,9 +47,9 @@ export default function Status({ words, percentage, possibleWordsLength }) {
         </div>
 
         <div className={'status-container'} style={{ height: width <= 900 ? (openWordsList ? ref.current?.offsetHeight + 50 : 50) : '100%' }}>
-          <div className='small-title'>
+          <div onClick={() => setOpenWordsList(!openWordsList)} className='small-title'>
             <span>You have found {words.length} words</span>
-            <span onClick={() => setOpenWordsList(!openWordsList)} className={`btn ${openWordsList ? 'open' : ''}`}>
+            <span className={`btn ${openWordsList ? 'open' : ''}`}>
               <IoIosArrowDown />
             </span>
           </div>

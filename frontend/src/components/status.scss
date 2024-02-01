@@ -92,7 +92,6 @@
   .status-container {
     border: 1px solid #e6e6e6;
     border-radius: 4px;
-    padding: 12px 30px;
     width: 100%;
     overflow: hidden;
     transition: all 0.2s ease-in-out;
@@ -100,6 +99,7 @@
       min-height: 50px;
     }
     .small-title {
+      padding: 12px 30px;
       font-size: 16px;
       font-weight: 500;
       flex: 100%;
@@ -127,6 +127,7 @@
     ul.letters-container {
       display: grid;
       grid-template-columns: 1fr 1fr;
+      padding: 0 30px 16px 30px;
       list-style: none;
       gap: 0 24px;
       @media only screen and (max-width: 600px) {
