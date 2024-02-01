@@ -13,6 +13,9 @@
     }
     svg {
       color: rgb(240, 215, 30);
+      -webkit-user-select: none; /* Safari */
+      -ms-user-select: none; /* IE 10 and IE 11 */
+      user-select: none;
     }
   }
   &.top {
@@ -69,5 +72,8 @@
     font-size: 34px;
     font-weight: 700;
     cursor: pointer;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none;
   }
 }
